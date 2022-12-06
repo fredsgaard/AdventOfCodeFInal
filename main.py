@@ -6,7 +6,8 @@ from dec5 import *
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    dec5_part1()
+    # dec5_part1()
+    dec5_part2()
     # dec4_part1()
     # dec4_part2()
 
