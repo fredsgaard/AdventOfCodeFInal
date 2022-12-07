@@ -5,19 +5,22 @@ import re
 def dec7_part1():
     regex_filesize = re.compile(r'(^\d+)')
     regex_ls = re.compile(r'(^(\$\sls))')
-    with open('dec7.csv') as csv_file:
+    regex_cd = re.compile(r'(^\$\scd\s\.+)')
+    with open('dec7_test.csv') as csv_file:
         csv_reader = csv.reader(csv_file)
         total_dir_size = 0
         dir_size = 0
         for row in csv_reader:
             ls_command = re.fullmatch(regex_ls, row[0])
+            cd_command = re.fullmatch(regex_cd, row[0])
+            file = re.search(regex_filesize, row[0])
             if ls_command:
                 print('$ ls')
                 if dir_size <= 100000:
                     total_dir_size += dir_size
                     print('Total dir size:' + str(total_dir_size))
+            if cd_command:
                 dir_size = 0
-            file = re.search(regex_filesize, row[0])
             if file:
                 file_size = int(file.group(1))
                 print('File size: ' + str(file_size))
