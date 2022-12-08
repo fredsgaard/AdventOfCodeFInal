@@ -3,12 +3,15 @@ from dec4 import *
 from dec5 import *
 from dec6 import *
 from dec7 import *
+from dec8 import *
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    dec7_part1()
+    # dec8_part1()
+    dec8_part2()
+    # filesys = dec7_part1()
     # dec6_part1()
     # dec6_part2()
     # dec5_part1()

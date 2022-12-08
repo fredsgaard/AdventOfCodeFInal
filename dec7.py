@@ -27,7 +27,7 @@ def dec7_part1():
             if cd_in:
                 dir_name = cd_in.group(1)
                 dir_path = dir_path_stack[-1] + '_' + dir_name
-                # dir_level += 1  # Go down 1 level
+                dir_level += 1  # Go down 1 level
                 # for lvl in range(dir_level, 0, -1):
                 #     prefix += dir_path_stack[lvl] + '_'
                 # dir_path = prefix + cd_in.group(1)
@@ -37,7 +37,10 @@ def dec7_part1():
                 dir_path_stack.pop()
             if file:  # Read file size
                 file_size = int(file.group(1))
-                filesystem[dir_path][dir_name].append(int(file.group(1)))
+                if dir_level > 0:
+                    filesystem[dir_path][dir_name].append(int(file.group(1)))
+                else:
+                    filesystem[dir_path].append(int(file.group(1)))
                 dir_size += file_size
                 print('File size: ' + str(file_size) + ', ' + 'Dir size: ' + str(dir_size))
                 # dir_level -= 1
@@ -59,6 +62,7 @@ def dec7_part1():
             #     print('File size: ' + str(file_size) + ', ' + 'Dir size: ' + str(dir_size))
             line += 1
         print('Total dir sizes of dirs < 100000: ' + str(total_dir_size))
+        return filesystem
 
 #
 #
