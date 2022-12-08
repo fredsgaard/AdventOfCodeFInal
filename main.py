@@ -10,8 +10,8 @@ from dec8 import *
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     # dec8_part1()
-    dec8_part2()
-    # filesys = dec7_part1()
+    # dec8_part2()
+    filesys = dec7_part1()
     # dec6_part1()
     # dec6_part2()
     # dec5_part1()

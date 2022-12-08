@@ -28,17 +28,18 @@ def dec7_part1():
                 dir_name = cd_in.group(1)
                 dir_path = dir_path_stack[-1] + '_' + dir_name
                 dir_level += 1  # Go down 1 level
-                # for lvl in range(dir_level, 0, -1):
-                #     prefix += dir_path_stack[lvl] + '_'
+                for lvl in range(0, dir_level):
+
+                    prefix += dir_path_stack[lvl] + '_'
                 # dir_path = prefix + cd_in.group(1)
-                filesystem[dir_path_stack[-1]] = {dir_name: []}
+                filesystem[dir_path_stack[-1]] = {dir_path: []}
                 dir_path_stack.append(dir_path)
             if cd_up:  # Move up
                 dir_path_stack.pop()
             if file:  # Read file size
                 file_size = int(file.group(1))
                 if dir_level > 0:
-                    filesystem[dir_path][dir_name].append(int(file.group(1)))
+                    filesystem[dir_path_stack[-2]][dir_path_stack[-1]].append(file_size)
                 else:
                     filesystem[dir_path].append(int(file.group(1)))
                 dir_size += file_size
