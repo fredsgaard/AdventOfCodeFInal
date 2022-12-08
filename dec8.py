@@ -2,7 +2,7 @@ import csv
 
 
 def forest():
-    with open('dec8_test.csv') as csv_file:
+    with open('dec8.csv') as csv_file:
         csv_reader = csv.reader(csv_file)
         tree_matrix = []
         for row in csv_reader:
@@ -28,37 +28,25 @@ def scenic_score(tree, left_line, right_line, top_line, bottom_line):
     top_vis = 0
     bottom_vis = 0
     for t in left_line:
-        if tree < t:
-            left_vis += 1
-            break
-        if tree == t:
+        if tree <= t:
             left_vis += 1
             break
         left_vis += 1
 
     for t in right_line:
-        if tree < t:
-            right_vis += 1
-            break
-        if tree == t:
+        if tree <= t:
             right_vis += 1
             break
         right_vis += 1
 
     for t in top_line:
-        if tree < t:
-            top_vis += 1
-            break
-        if tree == t:
+        if tree <= t:
             top_vis += 1
             break
         top_vis += 1
 
     for t in bottom_line:
-        if tree < t:
-            bottom_vis += 1
-            break
-        if tree == t:
+        if tree <= t:
             bottom_vis += 1
             break
         bottom_vis += 1
