@@ -60,9 +60,9 @@ def dec8_part1():
     tree_matrix = forest()
     visible_count = 0
     # iterate through rows
-    for i in range(1, len(tree_matrix) - 1, 1):
+    for i in range(0, len(tree_matrix) - 1, 1):
         # iterate through columns
-        for j in range(1, len(tree_matrix[0]) - 1, 1):
+        for j in range(0, len(tree_matrix[0]) - 1, 1):
             tree = tree_matrix[i][j]
 
             # Left
@@ -103,9 +103,9 @@ def dec8_part1():
 def dec8_part2():
     max_score = [0, 0, 0]
     tree_matrix = forest()
-    for i in range(1, len(tree_matrix) - 1, 1):
+    for i in range(0, len(tree_matrix) - 1, 1):
         # iterate through columns
-        for j in range(1, len(tree_matrix[0]) - 1, 1):
+        for j in range(0, len(tree_matrix[0]) - 1, 1):
             tree = tree_matrix[i][j]
             col = [row[j] for row in tree_matrix]
 
