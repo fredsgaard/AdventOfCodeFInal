@@ -70,7 +70,7 @@ def dec9_part2():
     s: list[int] = [6, 12]
     length = 10
     knots = []
-    for k in range(length-1):
+    for k in range(length - 1):
         knots.append(k)
     h = []
     h_last_pos = []
@@ -92,8 +92,8 @@ def dec9_part2():
                     h_last_pos = copy.deepcopy(h)
                     h[0][1] -= 1
                     for knot in knots:
-                        if math.dist(h[knot], h[knot+1]) > math.sqrt(2):
-                            h[knot+1] = copy.deepcopy(h_last_pos[knot])
+                        if math.dist(h[knot], h[knot + 1]) > math.sqrt(2):
+                            h[knot + 1] = copy.deepcopy(h_last_pos[knot])
                         if h[-1] not in t_positions_list:
                             t_positions_list.append(h[-1])
                             count_snake_tail_pos += 1
@@ -102,8 +102,8 @@ def dec9_part2():
                     h_last_pos = copy.deepcopy(h)
                     h[0][1] += 1
                     for knot in knots:
-                        if math.dist(h[knot], h[knot+1]) > math.sqrt(2):
-                            h[knot+1] = copy.deepcopy(h_last_pos[knot])
+                        if math.dist(h[knot], h[knot + 1]) > math.sqrt(2):
+                            h[knot + 1] = copy.deepcopy(h_last_pos[knot])
                         if h[-1] not in t_positions_list:
                             t_positions_list.append(h[-1])
                             count_snake_tail_pos += 1
@@ -112,8 +112,9 @@ def dec9_part2():
                     h_last_pos = copy.deepcopy(h)
                     h[0][0] += 1  # Move head
                     for knot in knots:
-                        if math.dist(h[knot], h[knot+1]) > math.sqrt(2):
-                            h[knot+1] = copy.deepcopy(h_last_pos[knot])
+                        if math.dist(h[knot], h[knot + 1]) > math.sqrt(2):
+                            h[knot + 1][0] += 1  # copy.deepcopy(h_last_pos[knot])
+                            h[knot + 1][1] += 1  # copy.deepcopy(h_last_pos[knot])
                         if h[-1] not in t_positions_list:
                             t_positions_list.append(h[-1])
                             count_snake_tail_pos += 1
@@ -122,8 +123,8 @@ def dec9_part2():
                     h_last_pos = copy.deepcopy(h)
                     h[0][0] -= 1
                     for knot in knots:
-                        if math.dist(h[knot], h[knot+1]) > math.sqrt(2):
-                            h[knot+1] = copy.deepcopy(h_last_pos[knot])
+                        if math.dist(h[knot], h[knot + 1]) > math.sqrt(2):
+                            h[knot + 1] = copy.deepcopy(h_last_pos[knot])
                         if h[-1] not in t_positions_list:
                             t_positions_list.append(h[-1])
                             count_snake_tail_pos += 1
