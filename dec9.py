@@ -60,6 +60,17 @@ def dec9_part1():
                         count_pos += 1
     print('Number of positions covered by tail: ' + str(count_pos))
 
+def diag_move(h, t):
+    new_pos = t
+    if h[0] > t[0]:  #  E
+        if h[1] > t[1]:  #  NE
+            new_pos[0] += 1
+            new_pos[1] += 1
+        else:  # SE
+            new_pos[0] -= 1
+            new_pos[1] -= 1
+    elif h[0] < t[0]: # W
+    return new_pos
 
 def dec9_part2():
     rows = 5
@@ -112,9 +123,12 @@ def dec9_part2():
                     h_last_pos = copy.deepcopy(h)
                     h[0][0] += 1  # Move head
                     for knot in knots:
-                        if math.dist(h[knot], h[knot + 1]) > math.sqrt(2):
-                            h[knot + 1][0] += 1  # copy.deepcopy(h_last_pos[knot])
-                            h[knot + 1][1] += 1  # copy.deepcopy(h_last_pos[knot])
+                        if math.dist(h[knot], h[knot + 1]) > 2:  # diagonal move
+                            h[knot + 1] = diag_move(h[knot], h[knot + 1])
+                            # h[knot + 1][0] += 1  # copy.deepcopy(h_last_pos[knot])
+                            # h[knot + 1][1] += 1  # copy.deepcopy(h_last_pos[knot])
+                        elif math.dist(h[knot], h[knot + 1]) == 2:
+
                         if h[-1] not in t_positions_list:
                             t_positions_list.append(h[-1])
                             count_snake_tail_pos += 1
